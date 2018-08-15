@@ -5,8 +5,6 @@
 
 # load_environment
 require './environment'
-puts ENV['temp_user_name']
-puts ENV['temp_password']
 
 account_users = Hash.new
 account_pass = Hash.new
