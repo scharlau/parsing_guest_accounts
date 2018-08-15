@@ -3,8 +3,9 @@
 
 #create account_pass and account_user pairs, then match those
 
-account_users = []
-account_pass = []
+account_users = Hash.new
+account_pass = Hash.new
+completed_triple = []
 username = ""
 password = ""
 account = ""
@@ -39,9 +40,9 @@ File.open('emails/email_messages.txt', 'r') do |f1|
       account = split_line[6]
       puts account
       if tempo == "tick"
-        account_users << {account => username}
+        account_users.store(account, username)
       else
-        account_pass << {account => password}
+        account_pass.store(account, password)
       end
     end
   end
@@ -49,11 +50,20 @@ end
 
 #take one array, loop through it, and find matching item from
 #the other array
+account_users.each do |key, value |
+  puts 'array looping'
+  puts "#{key} and #{value}"
 
+ pass = account_pass.fetch(key)
+ puts pass
+  completed_triple << [key, value, pass]
+
+end
 
 # Create a new file and write to it
 File.open('accounts.csv', 'w') do |f2|
   # use "\n" for two lines of text
   f2.puts account_users.to_s
   f2.puts account_pass.to_s
+  f2.puts completed_triple.to_s
 end
