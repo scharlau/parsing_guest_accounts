@@ -1,6 +1,9 @@
-# Parsing Guest Accounts
+#  Parsing Guest Accounts
 
 This program is to aid adminstration of guest computing accounts for events. After requesting x number of accounts, the details for each account arrive in two separate emails. This program pulls those details together and puts them into a useful format to hand out to the event guests.
+
+### Edit the Enviroment Variables
+Change the value of the variables in environment.rb to suit your needs. These are read by the program to fill in the details of the sites and terms and conditions the users are agreeing to follow when they use the generated account.
 
 ### Caveats
 

@@ -3,6 +3,11 @@
 
 #create account_pass and account_user pairs, then match those together
 
+# load_environment
+require './environment'
+puts ENV['temp_user_name']
+puts ENV['temp_password']
+
 account_users = Hash.new
 account_pass = Hash.new
 completed_triple = []
@@ -70,15 +75,15 @@ File.open('accounts.csv', 'w') do |f2|
     f2.puts "account: #{account[0]} with username: #{account[1]} and password: #{account[2]}"
     f2.puts "The user of this account is required to change this password on first login."
     f2.puts "To change your password:"
-    f2.puts "1. Go to our Password Registration portal page: xxxx to register your security questions."
-    f2.puts "2. Login using your IT account username and your temporary password. You must type uoa\ before your username, e.g. uoa\s02ab3."
+    f2.puts "1. Go to our Password Registration portal page: #{ENV['passwordregistrationpage']} to register your security questions."
+    f2.puts "2. Login using your IT account username and your temporary password. You must type #{ENV['domain']}\\ before your username, e.g. #{ENV['domain']}\\s02ab3."
     f2.puts "3. Register your security questions."
-    f2.puts "4. Once you have registered your security questions, go to our Password Reset portal page: xxxx"
+    f2.puts "4. Once you have registered your security questions, go to our Password Reset portal page: #{ENV['passwordresetpage']}"
     f2.puts "5. Login using your IT account username, answer 3 of your security questions."
     f2.puts "6. Change your temporary password."
-    f2.puts "If there are any problems accessing the Password Registration or Reset portal, or completing password reset, the user of this account should contact our IT Service Desk at xxxx <mailto:xxxx> .
-    Or log a call with MyIT self-service at xxxx- login using the account username and temporary password, select the call option 'Other', then follow the onscreen instructions."
-    f2.puts "Computing facilities at the University of Aberdeen are governed by terms and conditions:    xxxx "
+    f2.puts "If there are any problems accessing the Password Registration or Reset portal, or completing password reset, the user of this account should contact our IT Service Desk at #{ENV['institution_email']}.
+    Or contact one of the event staff, who should be able to help you."
+    f2.puts "Computing facilities at the #{ENV['institution']} are governed by terms and conditions: #{ENV['termsandconditionslink']} "
     f2.puts "By logging in the first time you will be accepting these terms and conditions."
     f2.puts ""
   end
