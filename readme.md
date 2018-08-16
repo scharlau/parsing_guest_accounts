@@ -22,4 +22,4 @@ The second version moves everything to a class with a struct, and extends the us
 
 ### Testing
 
-The test file only checks that the class file runs correctly and provides an example of its use. A better version would provide a same email_messages.txt to provide some validation checks instead of the user eyeballing that the account plus username and password are correct for a few random ones.
+The test file only checks that the class file runs correctly and provides an example of its use. A better version would provide a sample email_messages.txt to provide some validation checks instead of the user eyeballing that the account plus username and password are correct for a few random ones.
