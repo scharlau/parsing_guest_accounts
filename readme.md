@@ -16,7 +16,7 @@ A later version of this should also be able to reach into multiple files to gath
 
 ### Versions
 
-The first version of this was done without methods to understand how it might be done. This works, but is ugly and brittle without any easy paths for creating different output formats.
+The first version of this as shown in the 'version1' branch was done without methods to understand how it might be done. This works, but is ugly and brittle without any easy paths for creating different output formats.
 
 The second version moves everything to a class with a struct, and extends the use of environment variables to smooth the adaption of the code to different events
 
