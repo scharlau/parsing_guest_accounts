@@ -97,7 +97,7 @@ end
       text " We're glad you could spend the time with us.", :align=> :center
       text " "
       font_size 12
-      text "Your account for the event is: #{account.account} with username: #{account.username} and password: #{account.password}"
+      text "Your account is: #{account.account} with username: #{account.username} and password: #{account.password}"
       text " "
       text "This is a temporary account that will expire at the end of the final day for the event."
       text "The user of this account is required to change this password on first login."
