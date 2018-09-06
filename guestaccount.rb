@@ -1,4 +1,5 @@
 class GuestAccount
+  require "prawn"
 
 #use a struct to hold user account details
 Struct.new("User_Account", :account, :username, :password)
@@ -24,7 +25,7 @@ Struct.new("User_Account", :account, :username, :password)
         if line.include? "The username is:"
           tempo = "tick"
           spliline = line.split
-        #  puts line
+         # puts line
           username = spliline[3]
         #  puts username
         end
@@ -54,14 +55,15 @@ Struct.new("User_Account", :account, :username, :password)
     @accounusers.each do |key, value |
       pass = @accounpass.fetch(key)
       @user_account = Struct::User_Account.new(key, value, pass)
+    #  puts @user_account.to_s
       @completed_triple << @user_account
     end
-
+    return @completed_triple
   end
 
-def generate_account_pages
+  def generate_cvs
   # Create a new file and write to it
-  File.open('accounts.csv', 'w') do |f2|
+   File.open('accounts.csv', 'w') do |f2|
     # use "\n" for new line
     @completed_triple.each do |account|
       f2.puts "\n"
@@ -81,8 +83,34 @@ def generate_account_pages
       f2.puts "By logging in the first time you will be accepting these terms and conditions."
       f2.puts " \n \n"
     end
+  end
 end
 
-end
+  def generate_pdf(completed_triple)
+   Prawn::Document.generate("accounts.pdf", :margin => 100 
+   ) do
 
+     completed_triple.each do |account| 
+      font "Times-Roman"
+      font_size 20
+      text "Welcome to #{ENV['eventname']}! We're glad you could spend the time with us.", :align=> :center
+      font_size 12
+      text "Your account is: #{account.account} with username: #{account.username} and password: #{account.password}"
+      text " "
+      text "The user of this account is required to change this password on first login."
+      text "To change your password:"
+      text "1. Go to our Password Registration portal page: #{ENV['passwordregistrationpage']} to register your security questions."
+      text "2. Login using your IT account username and your temporary password. You must type #{ENV['domain']}\\ before your username, e.g. #{ENV['domain']}\\s02ab3."
+      text "3. Register your security questions."
+      text "4. Once you have registered your security questions, go to our Password Reset portal page: #{ENV['passwordresetpage']}"
+      text "5. Login using your IT account username, answer 3 of your security questions."
+      text "6. Change your temporary password."
+      text "If there are any problems accessing the Password Registration or Reset portal, or completing password reset, the user of this account should contact our IT Service Desk at #{ENV['institution_email']}."
+      text "Or contact one of the event staff, who should be able to help you."
+      text "Computing facilities at the #{ENV['institution']} are governed by terms and conditions: #{ENV['termsandconditionslink']} "
+      text "By logging in the first time you will be accepting these terms and conditions."
+      start_new_page 
+    end 
+   end
+  end
 end
