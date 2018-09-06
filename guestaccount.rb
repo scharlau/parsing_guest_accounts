@@ -93,13 +93,15 @@ end
      completed_triple.each do |account| 
       font "Times-Roman"
       font_size 20
-      text "Welcome to #{ENV['eventname']}! We're glad you could spend the time with us.", :align=> :center
+      text "Welcome to #{ENV['eventname']}!", :align=> :center
+      text " We're glad you could spend the time with us.", :align=> :center
       text " "
       font_size 12
       text "Your account for the event is: #{account.account} with username: #{account.username} and password: #{account.password}"
       text " "
       text "This is a temporary account that will expire at the end of the final day for the event."
       text "The user of this account is required to change this password on first login."
+      text " "
       text "To change your password:"
       text "1. Go to our Password Registration portal page: #{ENV['passwordregistrationpage']} to register your security questions."
       text "2. Login using your IT account username and your temporary password. You must type #{ENV['domain']}\\ before your username, e.g. #{ENV['domain']}\\s02ab3."
