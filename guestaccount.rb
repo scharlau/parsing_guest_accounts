@@ -94,9 +94,11 @@ end
       font "Times-Roman"
       font_size 20
       text "Welcome to #{ENV['eventname']}! We're glad you could spend the time with us.", :align=> :center
-      font_size 12
-      text "Your account is: #{account.account} with username: #{account.username} and password: #{account.password}"
       text " "
+      font_size 12
+      text "Your account for the event is: #{account.account} with username: #{account.username} and password: #{account.password}"
+      text " "
+      text "This is a temporary account that will expire at the end of the final day for the event."
       text "The user of this account is required to change this password on first login."
       text "To change your password:"
       text "1. Go to our Password Registration portal page: #{ENV['passwordregistrationpage']} to register your security questions."
@@ -105,6 +107,7 @@ end
       text "4. Once you have registered your security questions, go to our Password Reset portal page: #{ENV['passwordresetpage']}"
       text "5. Login using your IT account username, answer 3 of your security questions."
       text "6. Change your temporary password."
+      text " "
       text "If there are any problems accessing the Password Registration or Reset portal, or completing password reset, the user of this account should contact our IT Service Desk at #{ENV['institution_email']}."
       text "Or contact one of the event staff, who should be able to help you."
       text "Computing facilities at the #{ENV['institution']} are governed by terms and conditions: #{ENV['termsandconditionslink']} "
