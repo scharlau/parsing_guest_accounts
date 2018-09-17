@@ -94,24 +94,23 @@ end
       font "Times-Roman"
       font_size 20
       text "Welcome to #{ENV['eventname']}!", :align=> :center
-      text " We're glad you could spend the time with us.", :align=> :center
+      font_size 16
+      text "We're glad you could spend the time with us.", :align=> :center
       text " "
       font_size 12
       text "Your account is: #{account.account} with username: #{account.username} and password: #{account.password}"
       text " "
       text "This is a temporary account that will expire at the end of the final day for the event."
-      text "The user of this account is required to change this password on first login."
+      text "You can use these credentials with multiple devices."
       text " "
-      text "To change your password:"
-      text "1. Go to our Password Registration portal page: #{ENV['passwordregistrationpage']} to register your security questions."
-      text "2. Login using your IT account username and your temporary password. You must type #{ENV['domain']}\\ before your username, e.g. #{ENV['domain']}\\s02ab3."
-      text "3. Register your security questions."
-      text "4. Once you have registered your security questions, go to our Password Reset portal page: #{ENV['passwordresetpage']}"
-      text "5. Login using your IT account username, answer 3 of your security questions."
-      text "6. Change your temporary password."
+      text "1. Connect to the 'wireless help' wifi network."
+      text "2. Use the XpressConnect service with the account username. You might be asked to modify the network profile on your device."
+      text "3. Login using account username and your password. You must type #{ENV['domain']}\\ after your username, e.g. scb234#{ENV['domain']}."
+      text "4. This will ask for your password on the next page, and should then complete."
+      text "5. Switch to 'eduroam' network."
+      text "6. You should now find you're connected."
       text " "
-      text "If there are any problems accessing the Password Registration or Reset portal, or completing password reset, the user of this account should contact our IT Service Desk at #{ENV['institution_email']}."
-      text "Or contact one of the event staff, who should be able to help you."
+      text "If there are any problems contact one of the event staff, who should be able to help you."
       text "Computing facilities at the #{ENV['institution']} are governed by terms and conditions: #{ENV['termsandconditionslink']} "
       text "By logging in the first time you will be accepting these terms and conditions."
       start_new_page 

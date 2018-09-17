@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'prawn'
-require './environment'
+require './uoa-environment'
 require './guestaccount'
 
 class TestGuestAccount < Test::Unit::TestCase
