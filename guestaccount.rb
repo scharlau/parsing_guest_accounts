@@ -113,6 +113,16 @@ end
       text "If there are any problems contact one of the event staff, who should be able to help you."
       text "Computing facilities at the #{ENV['institution']} are governed by terms and conditions: #{ENV['termsandconditionslink']} "
       text "By logging in the first time you will be accepting these terms and conditions."
+      text " "
+      text "- - - - - - - - - - - - - - - - - - - tear off here - - - - - - - - - - - - - - - - - - - - - -"
+      text " "
+      text "Agreement for #{ENV['eventname']}"
+      text "Your account is: #{account.account} with username: #{account.username}"
+      text " "
+      text " Your name: _________________________________________________________________"
+      text " "
+      text " "
+      text "Signature: ___________________________________________________________________"
       start_new_page 
     end 
    end

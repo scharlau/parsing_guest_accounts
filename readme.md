@@ -22,6 +22,8 @@ The second version moves everything to a class with a struct, and extends the us
 
 The third version adds PDF capability using the Prawn gem https://github.com/prawnpdf/prawn for nicer output of one account per page. However, this now adds the problem that the text is duplicated as it's required for Prawn styling.
 
+The fourth version adds a cut off strip with name and signature so that we know who is using which account for our records in case we need to trace back something that happened during the event.
+
 ### Testing
 
 The test file only checks that the class file runs correctly and provides an example of its use. A better version would provide a sample email_messages.txt to provide some validation checks instead of the user eyeballing that the account plus username and password are correct for a few random ones.
