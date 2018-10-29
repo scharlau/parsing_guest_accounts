@@ -114,7 +114,7 @@ end
       text "Computing facilities at the #{ENV['institution']} are governed by terms and conditions: #{ENV['termsandconditionslink']} "
       text "By logging in the first time you will be accepting these terms and conditions."
       text " "
-      text "- - - - - - - - - - - - - - - - - - - tear off here - - - - - - - - - - - - - - - - - - - - - -"
+      text "- - - - - - - - - - - - - - - - - - - cut along here for records - - - - - - - - - - - - - - - - - - - - - -"
       text " "
       text "Agreement for #{ENV['eventname']}"
       text "Your account is: #{account.account} with username: #{account.username}"
