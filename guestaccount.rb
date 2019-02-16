@@ -25,14 +25,14 @@ Struct.new("User_Account", :account, :username, :password)
         if line.include? "The username is:"
           tempo = "tick"
           spliline = line.split
-         # puts line
+        #  puts line
           username = spliline[3]
         #  puts username
         end
 
         if line.include? "The temporary password is:"
           spliline = line.split
-        #  puts line
+          #puts line
           password = spliline[4]
           tempo = "tock"
         end
@@ -87,15 +87,14 @@ Struct.new("User_Account", :account, :username, :password)
 end
 
   def generate_pdf(completed_triple)
-   Prawn::Document.generate("accounts.pdf", :margin => 100 
-   ) do
+   Prawn::Document.generate("#{ENV['eventname_short']}accounts.pdf") do
 
      completed_triple.each do |account| 
       font "Times-Roman"
       font_size 20
       text "Welcome to #{ENV['eventname']}!", :align=> :center
       font_size 16
-      text "We're glad you could spend the time with us.", :align=> :center
+      text "We're glad you could spend #{ENV['event_date']} with us.", :align=> :center
       text " "
       font_size 12
       text "Your account is: #{account.account} with username: #{account.username} and password: #{account.password}"
@@ -104,11 +103,12 @@ end
       text "You can use these credentials with multiple devices."
       text " "
       text "1. Connect to the 'wireless help' wifi network."
-      text "2. Use the XpressConnect service with the account username. You might be asked to modify the network profile on your device."
-      text "3. Login using account username and your password. You must type #{ENV['domain']}\\ after your username, e.g. scb234#{ENV['domain']}."
-      text "4. This will ask for your password on the next page, and should then complete."
-      text "5. Switch to 'eduroam' network."
-      text "6. You should now find you're connected."
+      text "2. Open a browser and wait for the page to load asking whether you'd like to use the autoconnect, or manual connection process."
+      text "3. Use the XpressConnect service with the account username. You might be asked to modify the network profile on your device."
+      text "4. Login using account username and your password. You must type #{ENV['domain']} after your username, e.g. scb234#{ENV['domain']}."
+      text "5. This will ask for your password on the next page, and should then complete."
+      text "6. Switch to 'eduroam' network."
+      text "7. You should now find you're connected."
       text " "
       text "If there are any problems contact one of the event staff, who should be able to help you."
       text "Computing facilities at the #{ENV['institution']} are governed by terms and conditions: #{ENV['termsandconditionslink']} "
@@ -116,7 +116,8 @@ end
       text " "
       text "- - - - - - - - - - - - - - - - - - - cut along here for records - - - - - - - - - - - - - - - - - - - - - -"
       text " "
-      text "Agreement for #{ENV['eventname']}"
+      text "Agreement for #{ENV['eventname']} on #{ENV['event_date']} "
+      text " "
       text "Your account is: #{account.account} with username: #{account.username}"
       text " "
       text " Your name: _________________________________________________________________"
