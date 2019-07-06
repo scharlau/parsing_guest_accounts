@@ -10,6 +10,7 @@ Struct.new("User_Account", :account, :username, :password)
     @completed_triple = []
   end
 
+  #for parsing mixed emails with account names to match username and password
   def parse_accounts(filename)
     username = ""
     password = ""
@@ -60,6 +61,34 @@ Struct.new("User_Account", :account, :username, :password)
     end
     return @completed_triple
   end
+
+  #for parsing pairs of usernames and passwords
+  def parse_pairs(filename)
+    start_num = 0
+    #open file to read
+    File.open(filename, 'r') do |f1|
+      while line = f1.gets
+        start_num = start_num+1
+        spliline = line.split
+        username = spliline[0]
+        password = spliline[1]
+        account = start_num
+        @accounusers.store(account, username)
+        @accounpass.store(account, password)
+      end
+
+       #take one hash, loop through it, and find matching item from
+       #the other hash
+      @accounusers.each do |key, value |
+        pass = @accounpass.fetch(key)
+        @user_account = Struct::User_Account.new(key, value, pass)
+        #  puts @user_account.to_s
+        @completed_triple << @user_account
+      end
+      return @completed_triple
+    end
+  end
+
 
   def generate_cvs
   # Create a new file and write to it
