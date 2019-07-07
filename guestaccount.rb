@@ -10,6 +10,18 @@ Struct.new("User_Account", :account, :username, :password)
     @completed_triple = []
   end
 
+  def create_triple
+     #take one hash, loop through it, and find matching item from
+       #the other hash
+       @accounusers.each do |key, value |
+        pass = @accounpass.fetch(key)
+        @user_account = Struct::User_Account.new(key, value, pass)
+        #  puts @user_account.to_s
+        @completed_triple << @user_account
+      end
+      return @completed_triple
+  end
+
   #for parsing mixed emails with account names to match username and password
   def parse_accounts(filename)
     username = ""
@@ -50,16 +62,7 @@ Struct.new("User_Account", :account, :username, :password)
         end
       end
     end
-
-    #take one hash, loop through it, and find matching item from
-    #the other hash
-    @accounusers.each do |key, value |
-      pass = @accounpass.fetch(key)
-      @user_account = Struct::User_Account.new(key, value, pass)
-    #  puts @user_account.to_s
-      @completed_triple << @user_account
-    end
-    return @completed_triple
+    create_triple
   end
 
   #for parsing pairs of usernames and passwords
@@ -76,16 +79,7 @@ Struct.new("User_Account", :account, :username, :password)
         @accounusers.store(account, username)
         @accounpass.store(account, password)
       end
-
-       #take one hash, loop through it, and find matching item from
-       #the other hash
-      @accounusers.each do |key, value |
-        pass = @accounpass.fetch(key)
-        @user_account = Struct::User_Account.new(key, value, pass)
-        #  puts @user_account.to_s
-        @completed_triple << @user_account
-      end
-      return @completed_triple
+      create_triple
     end
   end
 
